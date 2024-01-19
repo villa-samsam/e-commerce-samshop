@@ -4,7 +4,7 @@
 
 
   /* reset browser default */
-  *{
+  * {
     margin: 0;
     padding: 0;
     border: 0;
@@ -21,15 +21,17 @@
   --card-bg-02: #d6e5fb;
   --card-bg-03: #f7d6ea;
   --card-bg-04: #c5fcce;
-  --primary-color: #7c2a04;
+  --primary-color: #e6510c;
   --hero-bg: #c2ccd5;
   --heading-fontSize: 2rem;
   --small-text-color: #999;
   --heading-text-color: #7c2a04;
 
+    --container-width-lg: 75%;
+    --container-width-md: 90%;
+    --container-width-sm: 95%;
 
 }
-
 
 
 body{
@@ -65,4 +67,113 @@ img{
 
 section{
   padding: 60px 0px;
+}
+
+
+/* =======================MEDIA QUERIES (MEDIUM DEVICES/TABLETS) */
+
+@media screen and (max-width: 1024px){
+  .container {
+      width: var(--container-width-md);
+  }
+
+  section{
+      margin-top: 6rem;
+  }
+
+  button {
+      width: max-content;
+      display: inline-block;
+      color: var(--color-primary);
+      padding: 0.5rem 1.2rem;
+      border-radius: 0.4rem;
+      cursor: pointer;
+      border: 1px solid var(--color-primary);
+      transition: var(--transition);
+  }
+
+  .btn:hover{
+      background-color: var(--color-white);
+      color: var(--color-bg-variant);
+      border-color: transparent;
+  }
+  
+  .btn-primary{
+      background: var(--color-primary);
+      color: var(--color-bg);
+  }
+  
+  
+}
+
+
+/* =======================MEDIA QUERIES (SMALL DEVICES/PHONES) */
+
+@media screen and (max-width: 600px){
+  .container {
+      width: var(--container-width-sm);
+  }
+
+  section > h2{
+      margin-bottom: 1rem;
+  }
+
+  button {
+      width: max-content;
+      display: inline-block;
+      color: var(--color-primary);
+      padding: 0.5rem 1rem;
+      border-radius: 0.4rem;
+      cursor: pointer;
+      border: 1px solid var(--color-primary);
+      transition: var(--transition);
+      font-size: 12px;
+  }
+
+  button:hover{
+      background-color: var(--color-white);
+      color: var(--color-bg-variant);
+      border-color: transparent;
+  }
+  
+  .btn-primary{
+      background: var(--color-primary);
+      color: var(--color-bg);
+  }
+}
+
+/* =======================MEDIA QUERIES (SMALLER DEVICES/iphoneSE) */
+@media screen and (max-width: 480px){
+
+
+  .container {
+      width: var(--container-width-sm);
+  }
+
+  section > h2{
+      margin-bottom: 1rem;
+  }
+
+  button {
+      width: max-content;
+      display: inline-block;
+      color: var(--color-primary);
+      padding: 0.5rem 0.5rem;
+      border-radius: 0.4rem;
+      cursor: pointer;
+      border: 1px solid var(--color-primary);
+      transition: var(--transition);
+      font-size: 12px;
+  }
+
+  button:hover{
+      background-color: var(--color-white);
+      color: var(--color-bg-variant);
+      border-color: transparent;
+  }
+  
+  .btn-primary{
+      background: var(--color-primary);
+      color: var(--color-bg);
+  }
 }

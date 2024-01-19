@@ -2,13 +2,17 @@ import React from 'react'
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Routers from '../../Routers/Routers';
+import {Container} from 'react-bootstrap';
 
 const Layout = () => {
   return (
     <>
         <Header/>
         <div>
-            <Routers/>
+
+          <Routers/>
+
+            
         </div>
         <Footer/>
     </>
