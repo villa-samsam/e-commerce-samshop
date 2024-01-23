@@ -44,3 +44,30 @@
     color: #fff;
 }
 
+
+.section__title{
+    margin-bottom: 3rem;
+}
+
+.timer__count{
+    background: var(--hero-bg);
+    height: 300px;
+
+}
+
+.timer__count img{
+    width: 70% !important;
+    height: 70% !important;
+    object-fit: contain;
+}
+
+.store__btn{
+    background: var(--primary-color);
+    color: #fff;
+    font-weight: 600;
+
+}
+
+.store__btn a:hover{
+color: #000;
+}

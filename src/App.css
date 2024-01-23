@@ -69,9 +69,13 @@ section{
   padding: 60px 0px;
 }
 
+.section__title{
+  color: var(--primary-color);
+  font-weight: 600;
+}
 
 /* =======================MEDIA QUERIES (MEDIUM DEVICES/TABLETS) */
-
+/* 
 @media screen and (max-width: 1024px){
   .container {
       width: var(--container-width-md);
@@ -104,11 +108,11 @@ section{
   }
   
   
-}
+} */
 
 
 /* =======================MEDIA QUERIES (SMALL DEVICES/PHONES) */
-
+/* 
 @media screen and (max-width: 600px){
   .container {
       width: var(--container-width-sm);
@@ -140,10 +144,10 @@ section{
       background: var(--color-primary);
       color: var(--color-bg);
   }
-}
+} */
 
 /* =======================MEDIA QUERIES (SMALLER DEVICES/iphoneSE) */
-@media screen and (max-width: 480px){
+/* @media screen and (max-width: 480px){
 
 
   .container {
@@ -176,4 +180,4 @@ section{
       background: var(--color-primary);
       color: var(--color-bg);
   }
-}
+} */

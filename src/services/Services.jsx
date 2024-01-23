@@ -13,7 +13,10 @@ const Services = () => {
             {
                 serviceData.map((item, index) =>(
                     <Col lg='3' md='4' key={index}>
-                    <div className="service__item" style={{background: `${item.bg}`}}>
+                    <motion.div 
+                    whileHover={{scale: 1.1}}
+                    className="service__item" 
+                    style={{background: `${item.bg}`}}>
                         <span>
                             <i class={item.icon}></i>
                         </span>
@@ -21,7 +24,7 @@ const Services = () => {
                             <h3>{item.title}</h3>
                             <p>{item.subtitle}</p>
                         </div>
-                    </div>
+                    </motion.div>
                 </Col>
                 ))
             }
@@ -36,6 +39,3 @@ const Services = () => {
 
 export default Services;
 
-//https://www.youtube.com/watch?v=4GMljXR1h78&list=PLCtnre5Uo1JVC-W0waIAN1pCFCAzXhqSd&index=5&t=2396s
-
-//47:00
