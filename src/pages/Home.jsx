@@ -111,7 +111,7 @@ const Home = () => {
       <section className='timer__count'>
         <Container>
           <Row>
-            <Col lg='6' md='6'>
+            <Col lg='6' md='12' className='count__down-col'>
             <div className="clock__top-content">
               <h4 className='fs-6 mb-2'>Limited Offers</h4>
               <h3 className='fs-5 mb-3'>Stunning bouquets</h3>
@@ -125,7 +125,7 @@ const Home = () => {
             </Col>
 
             
-            <Col lg='6' md='6' className='text-end'>
+            <Col lg='6' md='12' className='text-end counter__img'>
               <img src={counterImg} alt=''/>
             </Col>
           </Row>
@@ -133,7 +133,7 @@ const Home = () => {
         
       </section>
 
-      {/* Deal of the Day Section  */}
+  {/*================ Deal of the Day Section  */}
 
       <section className='new__deals'>
         <Container>
@@ -146,6 +146,7 @@ const Home = () => {
           </Row>
         </Container>
       </section>
+
 
     </Helmet>
   )
