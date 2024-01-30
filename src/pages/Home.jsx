@@ -1,155 +1,171 @@
-import React, {useState, useEffect} from 'react';
-import {Link} from "react-router-dom";
-import {motion} from "framer-motion";
-import products from '../assets/data/products';
-import Helmet from '../components/Helmet/Helmet';
-import {Container, Row, Col} from 'react-bootstrap';
-import heroImg from '../assets/images/flower-bouquet.png';
-import '../styles/home.css';
-import Services from '../services/Services';
-import ProductsList from '../components/UI/ProductsList';
-import Clock from '../components/UI/Clock';
-import counterImg from '../assets/images/counter-timer-img.png';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import Helmet from "../components/Helmet/Helmet";
+import { Container, Row, Col } from "react-bootstrap";
+import heroImg from "../assets/images/flower-bouquet.png";
+import "../styles/home.css";
+import Services from "../services/Services";
+import ProductsList from "../components/UI/ProductsList";
+import Clock from "../components/UI/Clock";
+import counterImg from "../assets/images/counter-timer-img.png";
 
-
+import useGetData from "../custom-hooks/useGetData";
 
 const Home = () => {
+  const { data: products, loading } = useGetData("products");
 
   // Setting initialization============
 
   const [trendingProducts, setTrendingProducts] = useState([]);
   const [bestSalesProducts, setBestSalesProducts] = useState([]);
-  const [dealProducts, setDealProducts] = useState([])
-
+  const [dealProducts, setDealProducts] = useState([]);
 
   const year = new Date().getFullYear();
 
   // =========UseEffect===========
 
-  useEffect(() =>{
+  useEffect(() => {
     const filteredBestSalesProducts = products.filter(
-      (item) => item.occassion ==='Love and Romance');
+      (item) => item.occassion === "Love and Romance"
+    );
 
-    const filteredTrendingProducts  = products.filter(
-        (item) => item.occassion ==='Valentines');
+    const filteredTrendingProducts = products.filter(
+      (item) => item.occassion === "Valentines"
+    );
 
-    const filteredDealProducts  = products.filter(
-      (item) => item.price > 100 && item.price < 130);
+    const filteredDealProducts = products.filter(
+      (item) => item.price > 100 && item.price < 130
+    );
 
-      setTrendingProducts(filteredTrendingProducts);
-      setBestSalesProducts(filteredBestSalesProducts);
-      setDealProducts(filteredDealProducts);
-
-
-  }, []);
-
-
+    setTrendingProducts(filteredTrendingProducts);
+    setBestSalesProducts(filteredBestSalesProducts);
+    setDealProducts(filteredDealProducts);
+  }, [products]);
 
   return (
     <Helmet title={"Home"}>
-
       {/* ---------------Hero Section */}
 
-      <section className='hero__section'>
-          <Container>
-            <Row>
-              <Col lg='6' md='6'>
+      <section className="hero__section">
+        <Container>
+          <Row>
+            <Col lg="6" md="6">
               <div className="container hero__content">
-                <p className="hero__subtitle">Checkout the most bought bouquet this season!</p>
-                <h2>Make them feel loved and send them flowers this Valentines Day! </h2>
-                <p>Go gift a bouquet for their special day! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum quod iure facilis aliquam inventore, illum debitis, quasi corrupti consectetur quidem dicta a corporis.</p>
-                
-                <motion.button whileTap={{ scale: 1.2}} 
-                className='shop__btn'>
+                <p className="hero__subtitle">
+                  Checkout the most bought bouquet this season!
+                </p>
+                <h2>
+                  Make them feel loved and send them flowers this Valentines
+                  Day!
+                </h2>
+                <p>
+                  Go gift a bouquet for their special day! Lorem, ipsum dolor
+                  sit amet consectetur adipisicing elit. Eum quod iure facilis
+                  aliquam inventore, illum debitis, quasi corrupti consectetur
+                  quidem dicta a corporis.
+                </p>
+
+                <motion.button whileTap={{ scale: 1.2 }} className="shop__btn">
                   <Link to="/shop"> SHOP NOW </Link>
-                  </motion.button>
+                </motion.button>
               </div>
-              </Col>
+            </Col>
 
-              <Col lg='6' md='6'>
-               <div className='container hero__img'>
-                <img src={heroImg} alt=''/>
-               </div>
-              </Col>
-
-            </Row>
-          </Container>
-
+            <Col lg="6" md="6">
+              <div className="container hero__img">
+                <img src={heroImg} alt="" />
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </section>
 
       {/* =========End of Hero Section */}
 
+      <Services />
 
-      <Services/>
-
-{/* ----------------Trending Products----------------- */}
+      {/* ----------------Trending Products----------------- */}
       <section className="trending__products">
         <Container>
           <Row>
-            <Col lg='12'className='text-center'>
-              <h2 className='section__title'> Trending Bouquets of the season</h2>
+            <Col lg="12" className="text-center">
+              <h2 className="section__title">
+                Trending Bouquets of the season
+              </h2>
             </Col>
-            <ProductsList data={trendingProducts}/>
+
+            {loading ? (
+              <h5 className="fw-bold">Loading ...</h5>
+            ) : (
+              <ProductsList data={trendingProducts} />
+            )}
           </Row>
         </Container>
       </section>
 
-{/* =============Best Sales Products============ */}
+      {/* =============Best Sales Products============ */}
 
-      <section className='best__sales'>
+      <section className="best__sales">
         <Container>
           <Row>
-            <Col lg='12'className='text-center'>
-              <h2 className='section__title'> Best Sales</h2>
+            <Col lg="12" className="text-center">
+              <h2 className="section__title"> Best Sales</h2>
             </Col>
-            <ProductsList data={bestSalesProducts}/>
+
+            {loading ? (
+              <h5 className="fw-bold py-5">Loading ...</h5>
+            ) : (
+              <ProductsList data={bestSalesProducts} />
+            )}
           </Row>
         </Container>
       </section>
-{/* =================TImer Count Section */}
+      {/* =================TImer Count Section */}
 
-      <section className='timer__count'>
+      <section className="timer__count">
         <Container>
           <Row>
-            <Col lg='6' md='12' className='count__down-col'>
-            <div className="clock__top-content">
-              <h4 className='fs-6 mb-2'>Limited Offers</h4>
-              <h3 className='fs-5 mb-3'>Stunning bouquets</h3>
-            </div>
-              <Clock/>
+            <Col lg="6" md="12" className="count__down-col">
+              <div className="clock__top-content">
+                <h4 className="fs-6 mb-2">Limited Offers</h4>
+                <h3 className="fs-5 mb-3">Stunning bouquets</h3>
+              </div>
+              <Clock />
 
-              <motion.button whileTap={{scale: 1.2}}className="shop__btn store__btn">
-                <Link to='/shop'>Visit Store</Link>
+              <motion.button
+                whileTap={{ scale: 1.2 }}
+                className="shop__btn store__btn"
+              >
+                <Link to="/shop">Visit Store</Link>
               </motion.button>
-
             </Col>
 
-            
-            <Col lg='6' md='12' className='text-end counter__img'>
-              <img src={counterImg} alt=''/>
+            <Col lg="6" md="12" className="text-end counter__img">
+              <img src={counterImg} alt="" />
             </Col>
           </Row>
         </Container>
-        
       </section>
 
-  {/*================ Deal of the Day Section  */}
+      {/*================ Deal of the Day Section  */}
 
-      <section className='new__deals'>
+      <section className="new__deals">
         <Container>
           <Row>
-            <Col lg='12' className='text-center'>
-              <h2 className='section__title'>Deals of the Day</h2>
-            
+            <Col lg="12" className="text-center">
+              <h2 className="section__title">Deals of the Day</h2>
             </Col>
-            <ProductsList data={dealProducts}/>
+            {loading ? (
+              <h5 className="fw-bold py-5">Loading ...</h5>
+            ) : (
+              <ProductsList data={dealProducts} />
+            )}
           </Row>
         </Container>
       </section>
-
-
     </Helmet>
-  )
-}
+  );
+};
 
 export default Home;
