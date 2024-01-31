@@ -2,25 +2,27 @@ const serviceData = [
   {
     icon: "ri-truck-line",
     title: "Free Shipping",
-    subtitle: "Lorem ipsum dolor sit amet.",
+    subtitle: "Convenient Free Shipping on all your orders within Japan",
     bg: "#fdefe6",
   },
   {
     icon: "ri-refresh-line",
-    title: "Easy Returns",
-    subtitle: "Lorem ipsum dolor sit amet.",
+    title: "Refund/Exchange ",
+    subtitle:
+      "Shop with confidence knowing that our Refund and Exchange policy.",
     bg: "#ceebe9",
   },
   {
     icon: "ri-secure-payment-line",
     title: "Secure Payment",
-    subtitle: "Lorem ipsum dolor sit amet.",
+    subtitle: "Worry-free transactions with our secure payment system.",
     bg: "#e2f2b2",
   },
   {
-    icon: "ri-exchange-dollar-line",
-    title: " Back Guarantee",
-    subtitle: "Lorem ipsum dolor sit amet.",
+    icon: "ri-bring-to-front",
+    title: " Customization",
+    subtitle:
+      "Tailor your experience by personalizing products to match your preferences",
     bg: "#d6e5fb",
   },
 ];

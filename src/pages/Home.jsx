@@ -9,12 +9,10 @@ import Services from "../services/Services";
 import ProductsList from "../components/UI/ProductsList";
 import Clock from "../components/UI/Clock";
 import counterImg from "../assets/images/counter-timer-img.png";
-
+import products from "../assets/data/products";
 import useGetData from "../custom-hooks/useGetData";
 
 const Home = () => {
-  const { data: products, loading } = useGetData("products");
-
   // Setting initialization============
 
   const [trendingProducts, setTrendingProducts] = useState([]);
@@ -29,6 +27,8 @@ const Home = () => {
     const filteredBestSalesProducts = products.filter(
       (item) => item.occassion === "Love and Romance"
     );
+
+    console.log("All products", products);
 
     const filteredTrendingProducts = products.filter(
       (item) => item.occassion === "Valentines"
@@ -60,10 +60,13 @@ const Home = () => {
                   Day!
                 </h2>
                 <p>
-                  Go gift a bouquet for their special day! Lorem, ipsum dolor
-                  sit amet consectetur adipisicing elit. Eum quod iure facilis
-                  aliquam inventore, illum debitis, quasi corrupti consectetur
-                  quidem dicta a corporis.
+                  Welcome to our blooming sanctuary, where the artistry of
+                  nature meets the elegance of expression. We curate a symphony
+                  of colors, fragrances, and textures to bring you an enchanting
+                  world of floral delights. From vibrant bouquets that speak
+                  volumes to delicate arrangements that convey your sentiments,
+                  each petal is carefully chosen to weave stories of love,
+                  celebration, and joy.
                 </p>
 
                 <motion.button whileTap={{ scale: 1.2 }} className="shop__btn">
@@ -95,11 +98,7 @@ const Home = () => {
               </h2>
             </Col>
 
-            {loading ? (
-              <h5 className="fw-bold">Loading ...</h5>
-            ) : (
-              <ProductsList data={trendingProducts} />
-            )}
+            <ProductsList data={trendingProducts} />
           </Row>
         </Container>
       </section>
@@ -113,11 +112,7 @@ const Home = () => {
               <h2 className="section__title"> Best Sales</h2>
             </Col>
 
-            {loading ? (
-              <h5 className="fw-bold py-5">Loading ...</h5>
-            ) : (
-              <ProductsList data={bestSalesProducts} />
-            )}
+            <ProductsList data={bestSalesProducts} />
           </Row>
         </Container>
       </section>
@@ -156,11 +151,7 @@ const Home = () => {
             <Col lg="12" className="text-center">
               <h2 className="section__title">Deals of the Day</h2>
             </Col>
-            {loading ? (
-              <h5 className="fw-bold py-5">Loading ...</h5>
-            ) : (
-              <ProductsList data={dealProducts} />
-            )}
+            <ProductsList data={dealProducts} />
           </Row>
         </Container>
       </section>

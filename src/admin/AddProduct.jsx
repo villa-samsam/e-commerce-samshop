@@ -35,7 +35,7 @@ const AddProduct = () => {
         () => {
           getDownloadURL(storageRef).then(async (downloadURL) => {
             await addDoc(docRef, {
-              title: enterTitle,
+              productName: enterTitle,
               shortDesc: enterShortDesc,
               description: enterDescription,
               category: enterCategory,
@@ -118,6 +118,7 @@ const AddProduct = () => {
                         onChange={(e) => setEnterCategory(e.target.value)}
                         required
                       >
+                        <option>Select catergory</option>
                         <option value="flowers">Flowers</option>
                         <option value="cake">Cake and Bouquet</option>
                         <option value="plants">Plants</option>

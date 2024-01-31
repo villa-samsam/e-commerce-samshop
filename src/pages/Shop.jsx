@@ -49,6 +49,24 @@ const Shop = () => {
     setProductsData(searchedProducts);
   };
 
+  const handleSort = (e) => {
+    const value = e.target.value;
+    if (value === "low") {
+      const sortedHigh = [...products].sort((a, b) => {
+        return a.price - b.price;
+      });
+      setProductsData(sortedHigh);
+      console.log(sortedHigh);
+    }
+    if (value === "high") {
+      const sortedLow = [...products].sort((a, b) => {
+        return b.price - a.price;
+      });
+      setProductsData(sortedLow);
+      console.log(sortedLow);
+    }
+  };
+
   return (
     <Helmet title="Shop">
       <CommonSection title="Products" />
@@ -72,10 +90,10 @@ const Shop = () => {
 
             <Col lg="3" md="6" className="text-end">
               <div className="filter__widget">
-                <select>
+                <select onChange={handleSort}>
                   <option>Sort By</option>
-                  <option value="ascending">Highest price</option>
-                  <option value="descending">Lowest price</option>
+                  <option value="high">Highest price</option>
+                  <option value="low">Lowest price</option>
                 </select>
               </div>
             </Col>
