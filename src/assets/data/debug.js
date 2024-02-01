@@ -1,11 +1,9 @@
 //
 
-//1. Favicon
-//2. Current data of the user when logging in is the same
-//3. Nextime/favorite icons
-//4. admin protection
-//5.search button in the dashboard
-//6. replace the lorem ipsum
+//1. Current data of the user when logging in is the same
+//2. favorite icons
+//3. admin protection
+//4. replace the lorem ipsum
 
 const uploadTask = uploadBytesResumable(storageRef, enterProductImg).then(
   () => {

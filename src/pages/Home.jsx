@@ -28,8 +28,6 @@ const Home = () => {
       (item) => item.occassion === "Love and Romance"
     );
 
-    console.log("All products", products);
-
     const filteredTrendingProducts = products.filter(
       (item) => item.occassion === "Valentines"
     );

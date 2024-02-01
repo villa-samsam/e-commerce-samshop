@@ -1,10 +1,16 @@
-import './App.css';
-import Layout from './components/Layout/Layout';
+import "./App.css";
+import Layout from "./components/Layout/Layout";
+import { Helmet } from "react-helmet";
 
 function App() {
   return (
-   <Layout/>
-
+    <>
+      <Helmet>
+        <title>Samshop</title>
+        <meta name="description" content="Samshop" />
+      </Helmet>
+      <Layout />
+    </>
   );
 }
 
