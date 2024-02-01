@@ -48,9 +48,11 @@ const Checkout = () => {
                   <input type="text" placeholder="Country" />
                 </FormGroup>
               </Form>
+
+              <button className="shop__btn mb-3">Save</button>
             </Col>
             <Col lg="4">
-              <div className="checkout__cart">
+              <div className="checkout__cart mt-5">
                 <h6>
                   Total Qty: <span>{totalQty} items</span>
                 </h6>

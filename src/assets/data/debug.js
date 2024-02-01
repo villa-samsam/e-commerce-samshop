@@ -1,3 +1,6 @@
+//
+
+//1. Favicon
 //2. Current data of the user when logging in is the same
 //3. Nextime/favorite icons
 //4. admin protection

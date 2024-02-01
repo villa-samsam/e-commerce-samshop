@@ -26,7 +26,7 @@ const Login = () => {
 
       const user = userCredential.user;
       toast.success("Successfuly logged in");
-      navigate("/checkout");
+      navigate("/home");
     } catch (error) {
       setLoading(false);
       toast.error(error.message);

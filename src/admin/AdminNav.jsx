@@ -3,6 +3,7 @@ import { Container, Row } from "react-bootstrap";
 import useAuth from "../custom-hooks/useAuth";
 import "../styles/admin-nav.css";
 import { NavLink } from "react-router-dom";
+import logo from "../assets/images/logo.png";
 
 const admin__nav = [
   {
@@ -33,6 +34,7 @@ const AdminNav = () => {
           <Container>
             <div className="admin__nav-wrapper-top">
               <div className="logo">
+                <img src={logo} alt="logo" />
                 <h2>Samshop</h2>
               </div>
               <div className="search__box">
